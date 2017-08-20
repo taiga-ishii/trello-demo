@@ -4,9 +4,13 @@ import CheckList from './CheckList';
 class Card extends React.Component{
     constructor(...args){
       super(...args);
-      this.state=
+      this.state={
         showDetails: false,
       };
+      this.toggleDetails= this.toggleDetails.bind(this);
+    }
+    toggleDetails(){
+        this.setState({ showDetails:!this.state.showDetails});
     }
 
     render(){
@@ -23,11 +27,13 @@ class Card extends React.Component{
         <div className="card">
           <div
             className="card__title"
-            onClick={()=> this.setState({ showDetails: !this.state.showDetails})}
+            onClick={this.toggleDetails}
             role="presentation"
             >
             {this.props.title}
           </div>
+          {cardDetails}
+        </div>
       );
     }
 }
