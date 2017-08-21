@@ -5,6 +5,7 @@ class List extends React.Component{
   render(){
     const cards=this.props.cards.map((card)=>{
       return(<Card
+        key={card.id}
         id={card.id}
         title={card.title}
         color={card.color}
